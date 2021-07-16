@@ -1,44 +1,38 @@
 import React, { useState } from "react"
 
 // import communication with backend
-import imagesService from '../services/images'
+// import imagesService from '../services/images'
+
+import FormData from 'form-data'
 
 
 const ImageForm = () => {
 
-  const [image, setImage] = useState({
-    contentImage: null,
-    styleImage: null
-  })
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target);
 
-  const handleChange = (event) => {
-    const imageType = event.target.name
-    setImage({
-      ...image,
-      [imageType]: URL.createObjectURL(event.target.files[0])
-    })
-  }
-
-  const handleSumbit = (event) => {
-    event.preventDefault()
-    imagesService.uploadImagesToBackend(image)
+    const Upload = async () => {
+      await fetch('http://192.168.178.25:6475/api/images', {
+        method: 'POST',
+        body: formData
+        // headers: { 'Content-Type': 'multipart/form-data' }
+      }).then(resp => {
+        resp.json().then(data => { console.log(data) })
+      })
+    }
+    Upload();
   }
 
   return (
     <div>
-      <div>
-        <p>Please upload a content image</p>
-        <input name="contentImage" type="file" onChange={handleChange}></input>
-      </div>
-      <div>
-        <p>Please upload a style image</p>
-        <input name="styleImage" type="file" onChange={handleChange}></input>
-      </div>
-      <div>
-        <img src={image.contentImage} alt="original"></img>
-        <img src={image.styleImage} alt="stylized"></img>
-      </div>
-      <button onClick={handleSumbit}>GENERATE</button>
+      <form onSubmit={handleSubmit} enctype="multipart/form-data">
+        <input type="file" id="image" name="contentImage"
+          accept="image/*" className="file-custom" />
+        <input type="file" id="image" name="styleImage"
+          accept="image/*" className="file-custom" />
+        <button >GENERATE</button>
+      </form>
     </div>
   )
 }
