@@ -10,25 +10,47 @@ const ImageForm = () => {
 
   const [generatedImageUrl, setGeneratedImageUrl] = useState("")
 
+  const [image, setImage] = useState({
+    contentImage: null,
+    styleImage: null
+  })
+
+  const handleChange = (event) => {
+    const imageType = event.target.name
+    console.log(imageType)
+    setImage({
+      ...image,
+      [imageType]: URL.createObjectURL(event.target.files[0])
+    })
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
- 
-        
+
+
     const temp = await imagesService.uploadImagesToBackend(e.target)
-    console.log(temp)
+    // console.log(temp)
+    // const blob = await temp.blob()
+    // const url = URL.createObjectURL(blob)
+    // console.log(url)
+    setGeneratedImageUrl("http://192.168.178.25:6475/api/images/generated_output")
 
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit} enctype="multipart/form-data">
-        <input type="file" id="image" name="contentImage"
-          accept="image/*" className="file-custom" />
-        <input type="file" id="image" name="styleImage"
-          accept="image/*" className="file-custom" />
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <input type="file" name="contentImage" accept="image/*" onChange={handleChange} />
+        <input type="file" name="styleImage" accept="image/*" onChange={handleChange} />
         <button >GENERATE</button>
       </form>
-      <img src={generatedImageUrl}></img>
+      <div>
+        <img src={image.contentImage} alt="original" width="300px"></img>
+        <img src={image.styleImage} alt="stylized" width="300px"></img>
+      </div>
+      <div>
+        <img src={generatedImageUrl}></img>
+      </div>
     </div>
   )
 }
