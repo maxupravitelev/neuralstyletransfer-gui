@@ -3,7 +3,13 @@ import React, { useState } from "react"
 // import communication with backend
 import imagesService from '../services/images'
 
-import FormData from 'form-data'
+// import 
+// import material ui components & styles
+import { Typography } from '@material-ui/core'
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../styles'
+
+const useStyles = makeStyles(styles)
 
 
 const ImageForm = () => {
@@ -16,23 +22,24 @@ const ImageForm = () => {
   })
 
   const handleChange = (event) => {
-    const imageType = event.target.name
-    console.log(imageType)
-    setImage({
-      ...image,
-      [imageType]: URL.createObjectURL(event.target.files[0])
-    })
+
+    if(event.target.files.length !== 0){
+      const imageType = event.target.name
+      setImage({
+        ...image,
+        [imageType]: URL.createObjectURL(event.target.files[0])
+      })
+    }
+
+
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    setGeneratedImageUrl("")
 
-    const temp = await imagesService.uploadImagesToBackend(e.target)
-    // console.log(temp)
-    // const blob = await temp.blob()
-    // const url = URL.createObjectURL(blob)
-    // console.log(url)
+    await imagesService.uploadImagesToBackend(e.target)
     setGeneratedImageUrl("http://192.168.178.25:6475/api/images/generated_output")
 
   }
@@ -49,7 +56,7 @@ const ImageForm = () => {
         <img src={image.styleImage} alt="stylized" width="300px"></img>
       </div>
       <div>
-        <img src={generatedImageUrl}></img>
+        <img src={generatedImageUrl} alt="generated"></img>
       </div>
     </div>
   )
