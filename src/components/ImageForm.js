@@ -5,7 +5,7 @@ import imagesService from '../services/images'
 
 // import 
 // import material ui components & styles
-import { Typography } from '@material-ui/core'
+import { Typography, Button } from '@material-ui/core'
 import { makeStyles } from "@material-ui/styles"
 import { styles } from '../styles'
 
@@ -13,6 +13,8 @@ const useStyles = makeStyles(styles)
 
 
 const ImageForm = () => {
+
+  const classes = useStyles()
 
   const [generatedImageUrl, setGeneratedImageUrl] = useState("")
 
@@ -45,17 +47,17 @@ const ImageForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+    <div className={classes.header} >
+      <form onSubmit={handleSubmit} className={classes.fileSelector} encType="multipart/form-data">
         <input type="file" name="contentImage" accept="image/*" onChange={handleChange} />
         <input type="file" name="styleImage" accept="image/*" onChange={handleChange} />
         <button >GENERATE</button>
       </form>
-      <div>
+      <div className={classes.elevatedDiv}>
         <img src={image.contentImage} alt="original" width="300px"></img>
         <img src={image.styleImage} alt="stylized" width="300px"></img>
       </div>
-      <div>
+      <div className={classes.elevatedDiv}>
         <img src={generatedImageUrl} alt="generated"></img>
       </div>
     </div>

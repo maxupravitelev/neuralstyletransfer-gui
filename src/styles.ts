@@ -4,7 +4,7 @@ const elevatedDivBase = {
   backgroundColor: '#FBFBFF',
   textAlign: 'center',
   borderWidth: '2px',
-  boxShadow: '2px 2px 5px 1px #01BAEF',
+  boxShadow: '2px 2px 5px 1px #1d1c1c;',
   width: 'auto',
 }
 
@@ -40,5 +40,9 @@ export const styles = {
     marginBottom: "1em", 
     backgroundColor: "#0B4F6C", 
     color: "#FBFBFF" 
-  }
+  },
+  fileSelector: {
+    ...elevatedDivBase,
+    textAlign: 'initial'
+  },
 }
