@@ -51,6 +51,11 @@ const ImageForm = () => {
       <form onSubmit={handleSubmit} className={classes.fileSelector} encType="multipart/form-data">
         <input type="file" name="contentImage" accept="image/*" id="contentImage" style={{ display: 'none' }} onChange={handleChange} />
         <label htmlFor="contentImage">
+
+          <div className={classes.imagePreview}>
+            <img src={image.contentImage} alt="original" width="300px"></img>
+          </div>
+
           <Button variant="outlined" component="span">
             Upload
           </Button>
@@ -58,21 +63,23 @@ const ImageForm = () => {
         <Typography>Please choose a file you want to stylize</Typography>
         <input type="file" name="styleImage" accept="image/*" id="styleImage" style={{ display: 'none' }} onChange={handleChange} />
         <label htmlFor="styleImage">
+
+          <div className={classes.imagePreview}>
+            <img src={image.styleImage} alt="stylized" width="300px"></img>
+          </div>
+
           <Button variant="outlined" component="span">
             Upload
           </Button>
         </label>
         <Typography>Please choose a style reference image</Typography>
         <div>
-        
-        <Button type="submit" variant="outlined">GENERATE</Button>
+
+          <Button type="submit" variant="outlined">GENERATE</Button>
         </div>
-        
+
       </form>
-      <div className={classes.elevatedDiv}>
-        <img src={image.contentImage} alt="original" width="300px"></img>
-        <img src={image.styleImage} alt="stylized" width="300px"></img>
-      </div>
+
       <div className={classes.elevatedDiv}>
         <img src={generatedImageUrl} alt="generated"></img>
       </div>

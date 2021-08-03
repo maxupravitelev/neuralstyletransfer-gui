@@ -45,4 +45,10 @@ export const styles = {
     ...elevatedDivBase,
     textAlign: 'initial'
   },
+  imagePreview: {
+    ...elevatedDivBase,
+    padding: '0',
+    width: 'fit-content',
+    textAlign: 'center'
+  },
 }
