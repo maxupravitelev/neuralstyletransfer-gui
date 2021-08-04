@@ -47,32 +47,36 @@ const ImageForm = () => {
   }
 
   return (
-    <div className={classes.container} >
+    <div 
+    className={classes.container} 
+    >
       <form onSubmit={handleSubmit} className={classes.fileSelector} encType="multipart/form-data">
         <input type="file" name="contentImage" accept="image/*" id="contentImage" style={{ display: 'none' }} onChange={handleChange} />
         <label htmlFor="contentImage">
 
           <div className={classes.imagePreview}>
-            <img src={image.contentImage} alt="original" width="300px"></img>
+            <img src={image.contentImage} alt="Please choose a file you want to stylize" width="300px"></img>
           </div>
 
           <Button variant="outlined" component="span">
             Upload
           </Button>
         </label>
-        <Typography>Please choose a file you want to stylize</Typography>
+        {/* <Typography>Please choose a file you want to stylize</Typography> */}
         <input type="file" name="styleImage" accept="image/*" id="styleImage" style={{ display: 'none' }} onChange={handleChange} />
         <label htmlFor="styleImage">
 
           <div className={classes.imagePreview}>
-            <img src={image.styleImage} alt="stylized" width="300px"></img>
+            <img src={image.styleImage} alt="Please choose a style reference file" 
+            width="300px"
+            ></img>
           </div>
 
           <Button variant="outlined" component="span">
             Upload
           </Button>
         </label>
-        <Typography>Please choose a style reference image</Typography>
+        {/* <Typography>Please choose a style reference image</Typography> */}
         <div>
 
           <Button type="submit" variant="outlined">GENERATE</Button>

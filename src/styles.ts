@@ -25,7 +25,7 @@ export const styles = {
   //   margin: '0 auto 1em',
   // },
   container: {
-    ...elevatedDivBase,
+    // ...elevatedDivBase,
     width: '50%',
     margin: '5em auto 1em',
     maxWidth: 'max-content',
@@ -43,12 +43,13 @@ export const styles = {
   // },
   fileSelector: {
     ...elevatedDivBase,
-    textAlign: 'initial'
+    textAlign: 'center'
   },
   imagePreview: {
     ...elevatedDivBase,
-    padding: '0',
-    width: 'fit-content',
+    padding: '1em',
+    // width: '300px',
+    // maxWidth: "300px",
     textAlign: 'center'
   },
 }
