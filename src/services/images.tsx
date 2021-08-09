@@ -2,8 +2,9 @@ import axios from 'axios'
 import FormData from 'form-data'
 
 // const baseUrl = 'http://localhost:6475/api/'
-const imageUrl = 'http://192.168.178.25:6475/api/images'
-
+//const imageUrl = 'http://192.168.178.25:6475/api/images'
+const imageUrl = process.env.REACT_APP_BACKEND_URL + '/images/'
+console.log(imageUrl)
 
 const uploadImagesToBackend = async (target) => {
   
