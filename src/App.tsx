@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css'
-import ImageForm from './components/ImageForm'
+import ImageUploader from './components/ImageUploader/'
 
 
 const App = () => {
     return (
         <div className="App">
-            <ImageForm />
+            <ImageUploader />
         </div>
     )
 }

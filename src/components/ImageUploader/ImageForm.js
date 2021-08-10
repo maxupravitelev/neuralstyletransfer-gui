@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 
-import GeneratedImageDisplay from './GeneratedImageDisplay'
-
 // import service for communication with backend
-import imagesService from '../services/images'
+import imagesService from '../../services/images'
 
 // import material ui components & styles
 import {
@@ -11,44 +9,44 @@ import {
     Button,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import { styles } from '../styles'
+import { styles } from '../../styles'
 
 const useStyles = makeStyles(styles)
 
 
-const ImageForm = () => {
+const ImageForm = ({ handleSubmit, handleChange, image }) => {
     const classes = useStyles()
 
-    const [generatedImageUrl, setGeneratedImageUrl] = useState('')
+    // const [generatedImageUrl, setGeneratedImageUrl] = useState('')
 
-    const [image, setImage] = useState({
-        contentImage: null,
-        styleImage: null,
-    })
+    // const [image, setImage] = useState({
+    //     contentImage: null,
+    //     styleImage: null,
+    // })
 
-    const handleChange = (event) => {
-        if (event.target.files.length !== 0) {
-            const imageType = event.target.name
-            setImage({
-                ...image,
-                [imageType]: URL.createObjectURL(event.target.files[0]),
-            })
-        }
-    }
+    // const handleChange = (event) => {
+    //     if (event.target.files.length !== 0) {
+    //         const imageType = event.target.name
+    //         setImage({
+    //             ...image,
+    //             [imageType]: URL.createObjectURL(event.target.files[0]),
+    //         })
+    //     }
+    // }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault()
 
-        setGeneratedImageUrl('')
+    //     setGeneratedImageUrl('')
 
-        await imagesService.uploadImagesToBackend(e.target)
-        setGeneratedImageUrl(
-            'http://192.168.178.25:6475/api/images/generated_output'
-        )
-    }
+    //     await imagesService.uploadImagesToBackend(e.target)
+    //     setGeneratedImageUrl(
+    //         'http://192.168.178.25:6475/api/images/generated_output'
+    //     )
+    // }
 
     return (
-        <div className={classes.container}>
+        // <div >
             <form
                 onSubmit={handleSubmit}
                 className={classes.fileSelector}
@@ -104,8 +102,7 @@ const ImageForm = () => {
                     </Button>
                 </div>
             </form>
-            <GeneratedImageDisplay generatedImageUrl={generatedImageUrl} />
-        </div>
+        // </div>
     )
 }
 
