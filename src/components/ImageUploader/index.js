@@ -43,9 +43,11 @@ const ImageUploader = () => {
         setGeneratedImageUrl('')
 
         await imagesService.uploadImagesToBackend(e.target)
-        setGeneratedImageUrl(
-            'http://192.168.178.25:6475/api/images/generated_output'
-        )
+
+        const generatedOutputUrl = process.env.REACT_APP_BACKEND_URL + '/images/generated_output'
+
+
+        setGeneratedImageUrl(generatedOutputUrl)
     }
 
     return (
