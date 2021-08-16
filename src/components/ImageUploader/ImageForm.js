@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 // import service for communication with backend
-import imagesService from '../../services/images'
+import imagesService from 'services/images'
 
 // import material ui components & styles
 import {
@@ -9,7 +9,7 @@ import {
     Button,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import { styles } from '../../styles'
+import { styles } from 'styles'
 
 const useStyles = makeStyles(styles)
 

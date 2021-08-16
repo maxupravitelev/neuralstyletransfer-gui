@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-import GeneratedImageDisplay from './GeneratedImageDisplay'
-import ImageForm from './ImageForm'
+import GeneratedImageDisplay from 'components/ImageUploader//GeneratedImageDisplay'
+import ImageForm from 'components/ImageUploader/ImageForm'
 
 // import service for communication with backend
-import imagesService from '../../services/images'
+import imagesService from 'services/images'
 
 // import material ui components & styles
 import {
@@ -12,7 +12,7 @@ import {
     Button,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import { styles } from '../../styles'
+import { styles } from 'styles'
 
 const useStyles = makeStyles(styles)
 
