@@ -45,11 +45,14 @@ export const styles = {
     ...elevatedDivBase,
     textAlign: 'center'
   },
-  imagePreview: {
+  imagePreviewContainer: {
     ...elevatedDivBase,
     padding: '1em',
-    // width: '300px',
-    // maxWidth: "300px",
+
     textAlign: 'center'
   },
+  imagePreview: {
+    width: '100%',
+    maxWidth: "450px"
+  }
 }

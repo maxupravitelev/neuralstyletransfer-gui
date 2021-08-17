@@ -1,4 +1,4 @@
-import React from 'react' // , { useState }
+// import React from 'react' // , { useState }
 
 // import material ui components & styles
 // import { Typography, Button } from '@material-ui/core'
@@ -7,13 +7,16 @@ import { styles } from 'styles'
 
 const useStyles = makeStyles(styles)
 
-
 const GeneratedImageDisplay = ({ generatedImageUrl }) => {
     const classes = useStyles()
 
     return (
         <div className={classes.elevatedDiv}>
-            <img src={generatedImageUrl} alt="generated"></img>
+            <img
+                src={generatedImageUrl}
+                alt="generated"
+                className={classes.imagePreview}
+            ></img>
         </div>
     )
 }

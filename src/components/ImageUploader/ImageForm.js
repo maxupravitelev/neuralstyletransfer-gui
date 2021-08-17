@@ -61,11 +61,11 @@ const ImageForm = ({ handleSubmit, handleChange, image }) => {
                     onChange={handleChange}
                 />
                 <label htmlFor="contentImage">
-                    <div className={classes.imagePreview}>
+                    <div className={classes.imagePreviewContainer}>
                         <img
                             src={image.contentImage}
                             alt="Please choose a file you want to stylize"
-                            width="300px"
+                            className={classes.imagePreview}
                         ></img>
                     </div>
 
@@ -83,11 +83,12 @@ const ImageForm = ({ handleSubmit, handleChange, image }) => {
                     onChange={handleChange}
                 />
                 <label htmlFor="styleImage">
-                    <div className={classes.imagePreview}>
+                    <div className={classes.imagePreviewContainer}>
                         <img
                             src={image.styleImage}
                             alt="Please choose a style reference file"
-                            width="300px"
+                            className={classes.imagePreview}
+
                         ></img>
                     </div>
 
