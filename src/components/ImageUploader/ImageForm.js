@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
 // import service for communication with backend
-import imagesService from 'services/images'
+// import imagesService from 'services/images'
 
 // import material ui components & styles
 import {

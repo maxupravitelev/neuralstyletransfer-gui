@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import GeneratedImageDisplay from 'components/ImageUploader//GeneratedImageDisplay'
+import GeneratedImageDisplay from 'components/ImageUploader/GeneratedImageDisplay'
 import ImageForm from 'components/ImageUploader/ImageForm'
 
 // import service for communication with backend
@@ -9,7 +9,7 @@ import imagesService from 'services/images'
 // import material ui components & styles
 import {
     // Typography,
-    Button,
+    // Button,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { styles } from 'styles'
@@ -42,11 +42,11 @@ const ImageUploader = () => {
 
         setGeneratedImageUrl('')
 
-        await imagesService.uploadImagesToBackend(e.target)
+        const returnedFilename = await imagesService.uploadImagesToBackend(e.target)
 
-        const generatedOutputUrl = process.env.REACT_APP_BACKEND_URL + '/images/generated_output'
+        const generatedOutputUrl = process.env.REACT_APP_BACKEND_URL + '/images/generated_output/?filename=' + returnedFilename
 
-
+        
         setGeneratedImageUrl(generatedOutputUrl)
     }
 
