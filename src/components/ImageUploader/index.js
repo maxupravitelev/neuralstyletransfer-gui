@@ -21,6 +21,8 @@ const ImageUploader = () => {
     const classes = useStyles()
 
     const [generatedImageUrl, setGeneratedImageUrl] = useState('')
+    const [imageGenerationState, setImageGenerationState] = useState('')
+
 
     const [image, setImage] = useState({
         contentImage: null,
@@ -42,10 +44,13 @@ const ImageUploader = () => {
 
         setGeneratedImageUrl('')
 
+        setImageGenerationState('Image is being generated on the server. This might take a moment...')
+        
         const returnedFilename = await imagesService.uploadImagesToBackend(e.target)
 
         const generatedOutputUrl = process.env.REACT_APP_BACKEND_URL + '/images/generated_output/?filename=' + returnedFilename
-
+        
+        setImageGenerationState('')
         
         setGeneratedImageUrl(generatedOutputUrl)
     }
@@ -54,7 +59,7 @@ const ImageUploader = () => {
         <div className={classes.container}>
           <ImageForm handleSubmit={handleSubmit} handleChange={handleChange} image={image}/>
             
-            <GeneratedImageDisplay generatedImageUrl={generatedImageUrl} />
+            <GeneratedImageDisplay generatedImageUrl={generatedImageUrl} imageGenerationState={imageGenerationState}/>
         </div>
     )
 }

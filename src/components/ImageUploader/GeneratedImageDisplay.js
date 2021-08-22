@@ -7,16 +7,17 @@ import { styles } from 'styles'
 
 const useStyles = makeStyles(styles)
 
-const GeneratedImageDisplay = ({ generatedImageUrl }) => {
+const GeneratedImageDisplay = ({ generatedImageUrl, imageGenerationState }) => {
     const classes = useStyles()
 
     return (
         <div className={classes.elevatedDiv}>
             <img
                 src={generatedImageUrl}
-                alt="generated"
+                alt="generated content"
                 className={classes.imagePreview}
             ></img>
+            <p>{imageGenerationState}</p>
         </div>
     )
 }
