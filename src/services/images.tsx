@@ -1,9 +1,15 @@
 import axios from 'axios'
 import FormData from 'form-data'
 
-// const baseUrl = 'http://localhost:6475/api/'
-//const imageUrl = 'http://192.168.178.25:6475/api/images'
-const imageUrl = process.env.REACT_APP_BACKEND_URL + '/images'
+const baseUrl = process.env.REACT_APP_BACKEND_URL 
+const imageUrl = baseUrl + '/api/images'
+
+
+const getPingFromBackend = async () => {
+  const ping = axios.get(baseUrl)
+  return ping
+}
+
 
 const uploadImagesToBackend = async (target) => {
   
@@ -39,6 +45,7 @@ const uploadImagesToBackend = async (target) => {
 }
 
 const imagesService = { 
+  getPingFromBackend,
   uploadImagesToBackend
 }
 
