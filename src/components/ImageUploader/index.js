@@ -7,22 +7,19 @@ import ImageForm from 'components/ImageUploader/ImageForm'
 import imagesService from 'services/images'
 
 // import material ui components & styles
-import {
-    // Typography,
-    // Button,
-} from '@material-ui/core'
+import // Typography,
+// Button,
+'@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { styles } from 'styles'
 
 const useStyles = makeStyles(styles)
-
 
 const ImageUploader = () => {
     const classes = useStyles()
 
     const [generatedImageUrl, setGeneratedImageUrl] = useState('')
     const [imageGenerationState, setImageGenerationState] = useState('')
-
 
     const [image, setImage] = useState({
         contentImage: null,
@@ -44,22 +41,36 @@ const ImageUploader = () => {
 
         setGeneratedImageUrl('')
 
-        setImageGenerationState('Image is being generated on the server. This might take a moment...')
-        
-        const returnedFilename = await imagesService.uploadImagesToBackend(e.target)
+        setImageGenerationState(
+            'Image is being generated on the server. This might take a moment...'
+        )
 
-        const generatedOutputUrl = process.env.REACT_APP_BACKEND_URL + '/images/generated_output/?filename=' + returnedFilename
-        
+        const returnedFilename = await imagesService.uploadImagesToBackend(
+            e.target
+        )
+
+        const generatedOutputUrl =
+            process.env.REACT_APP_BACKEND_URL +
+            '/images/generated_output/?filename=' +
+            returnedFilename
+
         setImageGenerationState('')
-        
+
         setGeneratedImageUrl(generatedOutputUrl)
     }
 
     return (
         <div className={classes.container}>
-          <ImageForm handleSubmit={handleSubmit} handleChange={handleChange} image={image}/>
-            
-            <GeneratedImageDisplay generatedImageUrl={generatedImageUrl} imageGenerationState={imageGenerationState}/>
+            <ImageForm
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+                image={image}
+            />
+
+            <GeneratedImageDisplay
+                generatedImageUrl={generatedImageUrl}
+                imageGenerationState={imageGenerationState}
+            />
         </div>
     )
 }
