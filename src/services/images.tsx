@@ -6,7 +6,7 @@ const imageUrl = baseUrl + '/api/images'
 
 
 const getPingFromBackend = async () => {
-  const ping = axios.get(baseUrl)
+  const ping = axios.get(baseUrl!)
   return ping
 }
 

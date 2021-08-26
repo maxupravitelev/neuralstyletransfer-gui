@@ -56,7 +56,6 @@ const ImageForm = ({ handleSubmit, handleChange, image }) => {
                     <Typography>
                         Please choose a style reference file
                     </Typography>
-
                     <Button variant="outlined" component="span">
                         Upload
                     </Button>

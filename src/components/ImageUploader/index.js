@@ -7,13 +7,11 @@ import ImageForm from 'components/ImageUploader/ImageForm'
 import imagesService from 'services/images'
 
 // import material ui components & styles
-import // Typography,
-// Button,
-'@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { styles } from 'styles'
 
 const useStyles = makeStyles(styles)
+
 
 const ImageUploader = () => {
     const classes = useStyles()
@@ -36,8 +34,8 @@ const ImageUploader = () => {
         }
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    const handleSubmit = async (event) => {
+        event.preventDefault()
 
         setGeneratedImageUrl('')
 
@@ -46,7 +44,7 @@ const ImageUploader = () => {
         )
 
         const returnedFilename = await imagesService.uploadImagesToBackend(
-            e.target
+            event.target
         )
 
         const generatedOutputUrl =
@@ -66,7 +64,6 @@ const ImageUploader = () => {
                 handleChange={handleChange}
                 image={image}
             />
-
             <GeneratedImageDisplay
                 generatedImageUrl={generatedImageUrl}
                 imageGenerationState={imageGenerationState}

@@ -7,7 +7,7 @@ import imagesService from 'services/images'
 
 const App = () => {
 
-    // sent a ping request for waking up backend when frontend is loaded
+    // sent a ping request for waking up the backend when the frontend is loaded
     useEffect(() => {
         imagesService.getPingFromBackend()
     }, [])
