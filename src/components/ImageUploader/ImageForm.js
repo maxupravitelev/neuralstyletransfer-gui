@@ -9,7 +9,10 @@ import { styles } from 'styles'
 // import sending notifications
 import Notification from 'components/Notification'
 import { setNotification } from 'reducers/notificationReducer'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { getGeneratedImageUrl } from 'reducers/generatedImageReducer'
+
 
 // import service for communication with backend
 import imagesService from 'services/images'
@@ -45,22 +48,28 @@ const ImageForm = ({  }) => {
         event.preventDefault()
 
         // setGeneratedImageUrl('')
-
         // setImageGenerationState(
         //     'Image is being generated on the server. This might take a moment...'
         // )
+
 
         const returnedFilename = await imagesService.uploadImagesToBackend(
             event.target
         )
 
+        console.log(returnedFilename)
+
         const generatedOutputUrl =
             process.env.REACT_APP_BACKEND_URL +
-            '/images/generated_output/?filename=' +
+            '/api/images/generated_output/?filename=' +
             returnedFilename
 
-        // setImageGenerationState('')
+        console.log(generatedOutputUrl)
 
+        dispatch(getGeneratedImageUrl(generatedOutputUrl))
+
+
+        // setImageGenerationState('')
         // setGeneratedImageUrl(generatedOutputUrl)
     }
 

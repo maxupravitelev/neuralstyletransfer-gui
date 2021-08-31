@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import GeneratedImageDisplay from 'components/ImageUploader/GeneratedImageDisplay'
+import GeneratedImageDisplay from 'components/GeneratedImageDisplay'
 import ImageForm from 'components/ImageUploader/ImageForm'
 
 // import service for communication with backend

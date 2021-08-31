@@ -8,10 +8,17 @@ import {
 import { makeStyles } from '@material-ui/styles'
 import { styles } from 'styles'
 
+import { useSelector } from 'react-redux'
+
+
 const useStyles = makeStyles(styles)
 
-const GeneratedImageDisplay = ({ generatedImageUrl, imageGenerationState }) => {
+const GeneratedImageDisplay = ({ }) => {
     const classes = useStyles()
+
+    const generatedImageUrl = useSelector(state => state.generatedImageUrl)
+
+    let imageGenerationState = "to do" 
 
     return (
         <div className={classes.elevatedDiv}>

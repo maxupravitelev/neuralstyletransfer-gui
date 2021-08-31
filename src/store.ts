@@ -4,10 +4,12 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
 import notificationReducer from 'reducers/notificationReducer'
+import generatedImageReducer from 'reducers/generatedImageReducer'
 
 
 const reducer = combineReducers({
   notification: notificationReducer,
+  generatedImageUrl: generatedImageReducer,
 })
 
 const store = createStore(
