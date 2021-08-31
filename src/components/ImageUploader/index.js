@@ -16,58 +16,58 @@ const useStyles = makeStyles(styles)
 const ImageUploader = () => {
     const classes = useStyles()
 
-    const [generatedImageUrl, setGeneratedImageUrl] = useState('')
-    const [imageGenerationState, setImageGenerationState] = useState('')
+    // const [generatedImageUrl, setGeneratedImageUrl] = useState('')
+    // const [imageGenerationState, setImageGenerationState] = useState('')
 
-    const [image, setImage] = useState({
-        contentImage: null,
-        styleImage: null,
-    })
+    // const [image, setImage] = useState({
+    //     contentImage: null,
+    //     styleImage: null,
+    // })
 
-    const handleChange = (event) => {
-        if (event.target.files.length !== 0) {
-            const imageType = event.target.name
-            setImage({
-                ...image,
-                [imageType]: URL.createObjectURL(event.target.files[0]),
-            })
-        }
-    }
+    // const handleChange = (event) => {
+    //     if (event.target.files.length !== 0) {
+    //         const imageType = event.target.name
+    //         setImage({
+    //             ...image,
+    //             [imageType]: URL.createObjectURL(event.target.files[0]),
+    //         })
+    //     }
+    // }
 
-    const handleSubmit = async (event) => {
-        event.preventDefault()
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault()
 
-        setGeneratedImageUrl('')
+    //     setGeneratedImageUrl('')
 
-        setImageGenerationState(
-            'Image is being generated on the server. This might take a moment...'
-        )
+    //     setImageGenerationState(
+    //         'Image is being generated on the server. This might take a moment...'
+    //     )
 
-        const returnedFilename = await imagesService.uploadImagesToBackend(
-            event.target
-        )
+    //     const returnedFilename = await imagesService.uploadImagesToBackend(
+    //         event.target
+    //     )
 
-        const generatedOutputUrl =
-            process.env.REACT_APP_BACKEND_URL +
-            '/images/generated_output/?filename=' +
-            returnedFilename
+    //     const generatedOutputUrl =
+    //         process.env.REACT_APP_BACKEND_URL +
+    //         '/images/generated_output/?filename=' +
+    //         returnedFilename
 
-        setImageGenerationState('')
+    //     setImageGenerationState('')
 
-        setGeneratedImageUrl(generatedOutputUrl)
-    }
+    //     setGeneratedImageUrl(generatedOutputUrl)
+    // }
 
     return (
         <div className={classes.container}>
             <ImageForm
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}
-                image={image}
+                // handleSubmit={handleSubmit}
+                // handleChange={handleChange}
+                // image={image}
             />
-            <GeneratedImageDisplay
+            {/* <GeneratedImageDisplay
                 generatedImageUrl={generatedImageUrl}
                 imageGenerationState={imageGenerationState}
-            />
+            /> */}
         </div>
     )
 }
