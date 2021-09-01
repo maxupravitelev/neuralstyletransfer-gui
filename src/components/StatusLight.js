@@ -16,7 +16,7 @@ const StatusLight = ({ }) => {
       
       console.log(sessionState.data)
 
-      if (sessionState.data == "ping") {
+      if (sessionState.data === "ping") {
         setBackgroundColor("green")
         setStatusDescription("server is online")
       } else  {
