@@ -1,4 +1,5 @@
 // import React from 'react' // , { useState }
+import { useSelector } from 'react-redux'
 
 // import material ui components & styles
 import {
@@ -7,8 +8,6 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { styles } from 'styles'
-
-import { useSelector } from 'react-redux'
 
 
 const useStyles = makeStyles(styles)

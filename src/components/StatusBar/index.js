@@ -13,7 +13,7 @@ const StatusBar = () => {
     const classes = useStyles()
 
     return (
-        <div className={classes.imagePreviewContainer}>
+        <div className={classes.elevatedDiv}>
             <StatusLight />
         </div>
     )

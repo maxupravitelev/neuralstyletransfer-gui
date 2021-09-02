@@ -6,7 +6,7 @@ const imageUrl = baseUrl + '/api/images'
 
 
 const getPingFromBackend = async () => {
-  const ping = axios.get(baseUrl!)
+  const ping = axios.get(baseUrl)
   return ping
 }
 
@@ -14,7 +14,7 @@ const getPingFromBackend = async () => {
 const uploadImagesToBackend = async (target) => {
   
 
-  const data = new FormData(target);
+  const data = new FormData(target)
 
   // data.append('styleImage', images.styleImage.file )
 
