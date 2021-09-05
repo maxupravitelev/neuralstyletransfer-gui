@@ -9,7 +9,7 @@ import generatedImageReducer from 'reducers/generatedImageReducer'
 
 const reducer = combineReducers({
   notification: notificationReducer,
-  generatedImageUrl: generatedImageReducer,
+  generatedImage: generatedImageReducer,
 })
 
 const store = createStore(

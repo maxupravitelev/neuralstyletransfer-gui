@@ -15,9 +15,9 @@ const useStyles = makeStyles(styles)
 const GeneratedImageDisplay = () => {
     const classes = useStyles()
 
-    const generatedImageUrl = useSelector(state => state.generatedImageUrl)
+    const generatedImageUrl = useSelector(state => state.url)
 
-    let imageGenerationState = "to do" 
+    const imageGenerationState = useSelector(state => state.generatingMessage)
 
     return (
         <div className={classes.elevatedDiv}>
