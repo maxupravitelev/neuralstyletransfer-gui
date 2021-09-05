@@ -12,7 +12,7 @@ import { styles } from 'styles'
 
 const useStyles = makeStyles(styles)
 
-const GeneratedImageDisplay = ({ }) => {
+const GeneratedImageDisplay = () => {
     const classes = useStyles()
 
     const generatedImageUrl = useSelector(state => state.generatedImageUrl)

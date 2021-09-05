@@ -19,12 +19,11 @@ import imagesService from 'services/images'
 
 const useStyles = makeStyles(styles)
 
-const ImageForm = ({  }) => {
+const ImageForm = () => {
     const classes = useStyles()
 
     const dispatch = useDispatch()
 
-    const [generatedImageUrl, setGeneratedImageUrl] = useState('')
     const [imageGenerationState, setImageGenerationState] = useState('')
 
     const [image, setImage] = useState({
@@ -47,7 +46,6 @@ const ImageForm = ({  }) => {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        // setGeneratedImageUrl('')
         // setImageGenerationState(
         //     'Image is being generated on the server. This might take a moment...'
         // )
@@ -68,9 +66,6 @@ const ImageForm = ({  }) => {
 
         dispatch(getGeneratedImageUrl(generatedOutputUrl))
 
-
-        // setImageGenerationState('')
-        // setGeneratedImageUrl(generatedOutputUrl)
     }
 
     return (

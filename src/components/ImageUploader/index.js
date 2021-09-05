@@ -1,10 +1,6 @@
-import React, { useState } from 'react'
+import React, {  } from 'react'
 
-import GeneratedImageDisplay from 'components/GeneratedImageDisplay'
 import ImageForm from 'components/ImageUploader/ImageForm'
-
-// import service for communication with backend
-import imagesService from 'services/images'
 
 // import material ui components & styles
 import { makeStyles } from '@material-ui/styles'

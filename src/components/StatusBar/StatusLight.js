@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core'
 import imagesService from 'services/images'
 
 
-const StatusLight = ({ }) => {
+const StatusLight = () => {
 
   const [backgroundColor, setBackgroundColor] = useState("red") 
   const [statusDescription, setStatusDescription] = useState("server is offline")
