@@ -55,14 +55,14 @@ const ImageForm = () => {
             event.target
         )
 
-        console.log(returnedFilename)
+        // console.log(returnedFilename)
 
         const generatedOutputUrl =
             process.env.REACT_APP_BACKEND_URL +
             '/api/images/generated_output/?filename=' +
             returnedFilename
 
-        console.log(generatedOutputUrl)
+        // console.log(generatedOutputUrl)
 
         dispatch(getGeneratedImageUrl(generatedOutputUrl))
 
