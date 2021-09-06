@@ -17,8 +17,8 @@ const GeneratedImageDisplay = () => {
 
     const generatedImageUrl = useSelector(state => state.generatedImage.url)
 
-    const imageGenerationState = useSelector(state => state.generatingMessage)
-    
+    const imageGenerationState = useSelector(state => state.generatedImage.generatingMessage)
+
     return (
         <div className={classes.elevatedDiv}>
             <img

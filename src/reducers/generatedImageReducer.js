@@ -13,6 +13,8 @@ const generatedImageReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'GET_GENERATED_IMAGE_URL':
             return {...state, url: action.data}
+        case 'SET_GENERATING_MESSAGE':
+            return {...state, generatingMessage: action.data}        
         default:
             return state
     }
@@ -25,6 +27,17 @@ export const getGeneratedImageUrl = (generatedImageUrl) => {
         dispatch({
             type: 'GET_GENERATED_IMAGE_URL',
             data: generatedImageUrl,
+        })
+    }
+}
+
+export const setGeneratingMessage = (generatingMessage) => {
+
+    return dispatch => {
+
+        dispatch({
+            type: 'SET_GENERATING_MESSAGE',
+            data: generatingMessage,
         })
     }
 }

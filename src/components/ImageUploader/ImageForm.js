@@ -11,7 +11,7 @@ import Notification from 'components/Notification'
 import { setNotification } from 'reducers/notificationReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getGeneratedImageUrl } from 'reducers/generatedImageReducer'
+import { getGeneratedImageUrl, setGeneratingMessage } from 'reducers/generatedImageReducer'
 
 
 // import service for communication with backend
@@ -46,25 +46,23 @@ const ImageForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        // setImageGenerationState(
-        //     'Image is being generated on the server. This might take a moment...'
-        // )
+        dispatch(setGeneratingMessage('Image is being generated on the server. This might take a moment...'))
 
 
         const returnedFilename = await imagesService.uploadImagesToBackend(
             event.target
         )
 
-        // console.log(returnedFilename)
 
         const generatedOutputUrl =
             process.env.REACT_APP_BACKEND_URL +
             '/api/images/generated_output/?filename=' +
             returnedFilename
 
-        // console.log(generatedOutputUrl)
 
         dispatch(getGeneratedImageUrl(generatedOutputUrl))
+        
+        dispatch(setGeneratingMessage(''))
 
     }
 
@@ -74,6 +72,7 @@ const ImageForm = () => {
             className={classes.fileSelector}
             encType="multipart/form-data"
         >
+            <Notification />
             <div className={classes.imagePreviewContainer}>
                 <input
                     type="file"
