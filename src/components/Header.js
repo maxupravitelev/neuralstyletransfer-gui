@@ -14,7 +14,7 @@ const Header = () => {
   const classes = useStyles()
 
   return (
-    <div className={classes.elevatedDiv}>
+    <div className={classes.header}>
       <Typography variant="h4" component="h2">
         Neural Style Transfer
       </Typography>

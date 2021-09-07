@@ -16,7 +16,7 @@ export const styles = {
   container: {
     // ...elevatedDivBase,
     width: '500px',
-    margin: '5em auto 1em'
+    margin: '0em auto 1em'
     
   },
   
@@ -32,5 +32,9 @@ export const styles = {
   imagePreview: {
     width: '100%',
     maxWidth: "450px"
+  },
+  header: {
+    ...elevatedDivBase,
+    marginTop: "10em"
   }
 }

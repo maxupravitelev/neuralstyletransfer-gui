@@ -43,8 +43,8 @@ const StatusLight = () => {
   return (
     <div style={{ 
       // display: 'flex', 
-      marginTop: 30, 
-      marginBottom: 10,
+      // marginTop: 30, 
+      // marginBottom: 10,
       alighItems: "center"
       }}>
       <div style={styleCircle}></div>
