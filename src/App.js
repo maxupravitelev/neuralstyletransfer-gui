@@ -1,9 +1,11 @@
 import React from 'react'
 import './App.css'
+
 import ImageUploader from 'components/ImageUploader/'
 import Notification from 'components/Notification'
 import GeneratedImageDisplay from 'components/GeneratedImageDisplay'
 import StatusBar from 'components/StatusBar'
+import Header from 'components/Header'
 
 // import material ui components & styles
 import {
@@ -23,6 +25,7 @@ const App = () => {
 
     return (
         <div className={classes.container}>
+            <Header />
             <Notification />
             <StatusBar />
             <ImageUploader />
