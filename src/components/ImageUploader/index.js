@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 
 import ContentImage from './ContentImage'
+import StyleImage from './StyleImage'
 
 // import sending notifications
 import Notification from 'components/Notification'
 import { setNotification } from 'reducers/notificationReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getGeneratedImageUrl, setGeneratingMessage } from 'reducers/generatedImageReducer'
-
+import {
+    getGeneratedImageUrl,
+    setGeneratingMessage,
+} from 'reducers/generatedImageReducer'
 
 // import service for communication with backend
 import imagesService from 'services/images'
@@ -29,8 +32,7 @@ const ImageUploader = () => {
     const [imageGenerationState, setImageGenerationState] = useState('')
     const [imageFormSet, setImageFormSet] = useState({
         contentImage: false,
-        styleImage: false
-
+        styleImage: false,
     })
 
     const [image, setImage] = useState({
@@ -58,24 +60,24 @@ const ImageUploader = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        dispatch(setGeneratingMessage('Image is being generated on the server. This might take a moment...'))
-
+        dispatch(
+            setGeneratingMessage(
+                'Image is being generated on the server. This might take a moment...'
+            )
+        )
 
         const returnedFilename = await imagesService.uploadImagesToBackend(
             event.target
         )
-
 
         const generatedOutputUrl =
             process.env.REACT_APP_BACKEND_URL +
             '/api/images/generated_output/?filename=' +
             returnedFilename
 
-
         dispatch(getGeneratedImageUrl(generatedOutputUrl))
-        
-        dispatch(setGeneratingMessage(''))
 
+        dispatch(setGeneratingMessage(''))
     }
 
     return (
@@ -85,37 +87,20 @@ const ImageUploader = () => {
             encType="multipart/form-data"
         >
             <Notification />
-            <ContentImage handleChange={handleChange} imageFormSet={imageFormSet} image={image}/>
-            <div className={classes.imagePreviewContainer}>
-                <input
-                    type="file"
-                    name="styleImage"
-                    accept="image/*"
-                    id="styleImage"
-                    style={{ display: 'none' }}
-                    onChange={handleChange}
-                />
-                 
-                <label htmlFor="styleImage">
-                    {(imageFormSet.styleImage) &&
-                    <img
-                        src={image.styleImage}
-                        alt="reference"
-                        className={classes.imagePreview}
-                    ></img>
-                    }
-                    <Typography>
-                        Please choose a style reference file
-                    </Typography>
-                    <Button variant="outlined" component="span">
-                        Upload
-                    </Button>
-                </label>
-                <div>
-                    <Button type="submit" variant="outlined">
-                        GENERATE
-                    </Button>
-                </div>
+            <ContentImage
+                handleChange={handleChange}
+                imageFormSet={imageFormSet}
+                image={image}
+            />
+            <StyleImage
+                handleChange={handleChange}
+                imageFormSet={imageFormSet}
+                image={image}
+            />
+            <div>
+                <Button type="submit" variant="outlined">
+                    GENERATE
+                </Button>
             </div>
         </form>
     )
