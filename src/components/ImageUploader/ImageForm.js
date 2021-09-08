@@ -25,6 +25,11 @@ const ImageForm = () => {
     const dispatch = useDispatch()
 
     const [imageGenerationState, setImageGenerationState] = useState('')
+    const [imageFormSet, setImageFormSet] = useState({
+        contentImage: false,
+        styleImage: false
+
+    })
 
     const [image, setImage] = useState({
         contentImage: null,
@@ -37,6 +42,11 @@ const ImageForm = () => {
             setImage({
                 ...image,
                 [imageType]: URL.createObjectURL(event.target.files[0]),
+            })
+
+            setImageFormSet({
+                ...imageFormSet,
+                [imageType]: true,
             })
 
             dispatch(setNotification(`${imageType} set`, 3, 'success'))
@@ -83,11 +93,13 @@ const ImageForm = () => {
                     onChange={handleChange}
                 />
                 <label htmlFor="contentImage">
+                {(imageFormSet.contentImage) &&
                     <img
                         src={image.contentImage}
                         alt="original"
                         className={classes.imagePreview}
                     ></img>
+                }
                     <p></p>
                     <Typography>
                         Please choose a file you want to stylize
@@ -106,12 +118,15 @@ const ImageForm = () => {
                     style={{ display: 'none' }}
                     onChange={handleChange}
                 />
+                 
                 <label htmlFor="styleImage">
+                    {(imageFormSet.styleImage) &&
                     <img
                         src={image.styleImage}
                         alt="reference"
                         className={classes.imagePreview}
                     ></img>
+                    }
                     <Typography>
                         Please choose a style reference file
                     </Typography>
