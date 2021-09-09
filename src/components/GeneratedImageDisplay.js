@@ -21,11 +21,13 @@ const GeneratedImageDisplay = () => {
 
     return (
         <div className={classes.elevatedDiv}>
+            {generatedImageUrl && 
             <img
                 src={generatedImageUrl}
                 alt='generated content'
                 className={classes.imagePreview}
             ></img>
+            }
             <div>
                 <Typography>{imageGenerationState}</Typography>
             </div>

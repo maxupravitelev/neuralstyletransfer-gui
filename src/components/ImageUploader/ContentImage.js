@@ -8,7 +8,7 @@ import { styles } from 'styles'
 const useStyles = makeStyles(styles)
 
 
-const ContentImage = ({ handleChange, imageFormSet, image}) => {
+const ContentImage = ({ handleChange, imageFormSet, image }) => {
 
   const classes = useStyles()
 
