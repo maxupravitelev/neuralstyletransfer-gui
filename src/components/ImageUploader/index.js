@@ -6,7 +6,7 @@ import StyleImage from './StyleImage'
 // import sending notifications
 import Notification from 'components/Notification'
 import { setNotification } from 'reducers/notificationReducer'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import {
     getGeneratedImageUrl,
@@ -17,7 +17,7 @@ import {
 import imagesService from 'services/images'
 
 // import material ui components & styles
-import { Typography, Button } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { styles } from 'styles'
 
@@ -29,7 +29,6 @@ const ImageUploader = () => {
 
     const dispatch = useDispatch()
 
-    const [imageGenerationState, setImageGenerationState] = useState('')
     const [imageFormSet, setImageFormSet] = useState({
         contentImage: false,
         styleImage: false,
