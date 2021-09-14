@@ -36,5 +36,11 @@ export const styles = {
   header: {
     ...elevatedDivBase,
     marginTop: "10em"
+  },
+  statusBar: {
+    ...elevatedDivBase,
+    // textAlign: "left",
+    // display: "-webkit-box"
+
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 
-import StatusLight from './StatusLight'
+import StatusLight from 'components/StatusBar/StatusLight'
+// import Notification from 'components/Notification'
 
 // import material ui components & styles
 import { makeStyles } from '@material-ui/styles'
@@ -13,8 +14,9 @@ const StatusBar = () => {
     const classes = useStyles()
 
     return (
-        <div className={classes.elevatedDiv}>
+        <div className={classes.statusBar}>
             <StatusLight />
+            {/* <Notification /> */}
         </div>
     )
 }

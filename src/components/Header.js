@@ -20,7 +20,7 @@ const Header = () => {
       </Typography>
       <Typography 
         style={{ marginTop: "0.5em" }}
-      >about</Typography>
+      >Generate an image in the style of a reference image by utilizing <a href="https://www.tensorflow.org/tutorials/generative/style_transfer">neural style transfer</a>.</Typography>
     </div>
   )
 }
