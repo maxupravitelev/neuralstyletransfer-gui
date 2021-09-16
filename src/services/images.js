@@ -6,8 +6,15 @@ const imageUrl = baseUrl + '/api/images'
 
 
 const getPingFromBackend = async () => {
-  const ping = axios.get(baseUrl)
-  return ping
+  
+  try {
+    const ping = await axios.get(baseUrl)
+    return ping.data
+  } catch (error) {
+    console.log(error)
+    return "error"
+  }
+  
 }
 
 
