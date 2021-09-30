@@ -6,7 +6,7 @@ import imagesService from 'services/images'
 const StatusLight = () => {
     const [backgroundColor, setBackgroundColor] = useState('red')
     const [statusDescription, setStatusDescription] =
-        useState('server is offline')
+        useState('Trying to reach server...')
 
     // sent a ping request for waking up the backend when the frontend is loaded
     useEffect(() => {
@@ -15,16 +15,13 @@ const StatusLight = () => {
 
             if (sessionState === 'ping') {
                 setBackgroundColor('green')
-                setStatusDescription('server is online')
-            } else if (sessionState === 'error') {
+                setStatusDescription('Server is online.')
+            } else {
                 setBackgroundColor('red')
                 setStatusDescription(
                     'Server could not be reached. Please contact the admin.'
                 )
-            } else {
-                setBackgroundColor('red')
-                setStatusDescription('server is offline')
-            }
+            } 
         }
         checkState()
     }, [])
