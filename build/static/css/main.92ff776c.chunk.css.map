@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,KACE,wBAEF,CAEA,OACE,qBACF,CAEA,aACE,UACF","file":"main.92ff776c.chunk.css","sourcesContent":["body {\n  background-color: #1d1c1c;\n  /* background-size: cover; */\n}\n\n:focus {\n  outline: 3px solid red;\n}\n\nbutton:hover {\n  opacity: 0.9;\n}\n"]}

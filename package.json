@@ -13,7 +13,10 @@
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
     "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "formdata": "^0.10.4",
+    "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
@@ -25,7 +28,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "localstart": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
